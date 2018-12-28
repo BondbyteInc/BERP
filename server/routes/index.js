@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models/index');
-
-
+const path = require('path');
+//default path, or start path.
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  //res.render('index', { title: 'Express' });
+  //console.log(path.join(__dirname, 'foo'));
+  res.sendFile(path.join(
+    __dirname, '..', '..', 'client', 'views', 'index.html'));
 });
 
 router.post('/users', function(req, res) {
@@ -16,59 +19,59 @@ router.post('/users', function(req, res) {
 });
 
 // get all todos
-router.get('/todos', function(req, res) {
-  models.Todo.findAll({}).then(function(todos) {
-    res.json(todos);
+router.get('/items', function(req, res) {
+  models.Item.findAll({}).then(function(items) {
+    res.json(items);
   });
 });
 
 // get single todo
-router.get('/todo/:id', function(req, res) {
-  models.Todo.find({
+router.get('/item/:id', function(req, res) {
+  models.Item.find({
     where: {
       id: req.params.id
     }
-  }).then(function(todo) {
-    res.json(todo);
+  }).then(function(item) {
+    res.json(item);
   });
 });
 
 // add new todo
-router.post('/todos', function(req, res) {
-  models.Todo.create({
+router.post('/items', function(req, res) {
+  models.Item.create({
     title: req.body.title,
     UserId: req.body.user_id
-  }).then(function(todo) {
-    res.json(todo);
+  }).then(function(item) {
+    res.json(item);
   });
 });
 
 // update single todo
-router.put('/todo/:id', function(req, res) {
-  models.Todo.find({
+router.put('/item/:id', function(req, res) {
+  models.Item.find({
     where: {
       id: req.params.id
     }
-  }).then(function(todo) {
-    if(todo){
-      todo.updateAttributes({
+  }).then(function(item) {
+    if(item){
+      item.updateAttributes({
         title: req.body.title,
         complete: req.body.complete
-      }).then(function(todo) {
-        res.send(todo);
+      }).then(function(item) {
+        res.send(item);
       });
     }
   });
 });
 
 // delete a single todo
-router.delete('/todo/:id', function(req, res) {
-  models.Todo.destroy({
+router.delete('/item/:id', function(req, res) {
+  models.Item.destroy({
     where: {
       id: req.params.id
     }
-  }).then(function(todo) {
-    res.json(todo);
+  }).then(function(item) {
+    res.json(item);
   });
 });
 

@@ -25,7 +25,7 @@ connection strings, if you will.... Are stored in the server/config/config.json 
   ~/NEPS_V/server$ ../node_modules/.bin/sequelize db:migrate
 
 ##### How to start the project:
-  npm start
+  ~/NEPS_V$ gulp
 
 
 Grab the step 2 Git Repo. It seems to contain most of what you'll need. AXE Angular and replace with Vue.js.

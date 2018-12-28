@@ -20,7 +20,7 @@ var paths = {
   scripts: [
     './client/js/*.js',
   ],
-  server: './server/bin/www'
+  server: './bin/www'
 };
 
 var nodemonConfig = {

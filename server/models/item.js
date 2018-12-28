@@ -1,19 +1,18 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var item = sequelize.define('item', {
-    id:{type: DataTypes.INTEGER,
-        primaryKey:true},
+  var Item = sequelize.define('Item', {
     title: DataTypes.STRING,
-    complete: {type: DataTypes.BOOLEAN,
-                defaultValue: false},
-    userid: DataTypes.INTEGER
+    complete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        item.belongsTo(models.user);
+        Item.belongsTo(models.User);
       }
     }
   });
-  return item;
+  return Item;
 };
