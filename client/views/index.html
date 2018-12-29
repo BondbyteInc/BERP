@@ -1,15 +1,43 @@
-{% extends 'layout.html' %}
-
-{% block title %}{% endblock %}
-
-
-{% block content %}
-
-  <div class="container">
-
-    <h1>{{ title }}</h1>
-    <p>Welcomes to {{ title }}</p>
-
-  </div>
-
-{% endblock %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>PassPort Test</h1>
+      <p>Welcome to my Passport.js test</p>
+      <div class="row">
+			    <div id="legend">
+			      <legend class="">Login</legend>
+			    </div>
+			    <div class="control-group">
+			      <!-- Username -->
+			      <label class="control-label" for="username">Username</label>
+			      <div class="controls">
+			        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+			      </div>
+			    </div>
+			    <div class="control-group">
+			      <!-- Password-->
+			      <label class="control-label" for="password">Password</label>
+			      <div class="controls">
+			        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+			      </div>
+			    </div>
+			    <div class="control-group">
+			      <!-- Button -->
+			      <div class="controls">
+			        <button class="btn btn-success" onClick="submitCredentials()" name="button">Login</button>
+			      </div>
+			    </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+  </body>
+</html>

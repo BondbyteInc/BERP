@@ -10,6 +10,11 @@ router.get('/', function(req, res, next) {
     __dirname, '..', '..', 'client', 'views', 'index.html'));
 });
 
+router.post('/auth', function(req,res){
+  console.log(req.body.login);
+  res.json(req.body);
+});
+
 router.post('/users', function(req, res) {
   models.User.create({
     email: req.body.email
